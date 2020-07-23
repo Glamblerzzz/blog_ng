@@ -1,0 +1,8 @@
+<div>
+    <div class="top_bar">
+        <div [ngClass]="{'item':true , checked:ItemChecked[i]}" *ngFor="let item of menuList;index as i"
+            (click)="ChangeNavbar(i)">
+            {{item['name']}}
+        </div>
+    </div>
+</div>

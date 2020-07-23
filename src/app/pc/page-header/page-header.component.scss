@@ -1,0 +1,86 @@
+@import "../../../../src/styles.scss";
+@media only screen and (min-width: 400px) {
+    .top_bar {
+        position: fixed;
+        width: 40%;
+        top: 20px;
+        right: 20px;
+        z-index: 100;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        .item {
+            position: relative;
+            width: 100%;
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+            color: #000;
+            transition: 0.3s all linear;
+            // border-top-left-radius: 5px;
+            // border-top-right-radius: 5px;
+        }
+        .item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 100%;
+            width: 0;
+            height: 100%;
+            border-bottom: 2px solid #000;
+            transition: 0.2s all linear;
+        }
+
+        .item:hover::before {
+            width: 100%;
+            left: 0;
+            top: 0;
+            transition-delay: 0.1s;
+            border-bottom-color: #000;
+            z-index: -1;
+        }
+        .item:hover ~ .item::before {
+            left: 0;
+        }
+
+        .checked {
+            background-color: #666;
+            color: #fff;
+        }
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .top_bar {
+        margin: wd(30) wd(20) wd(0) wd(20);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        border-bottom: 2px solid #288bf0;
+        .item {
+            position: relative;
+            width: 100%;
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+            color: #000;
+            z-index: 100;
+            // border-top-right-radius: 5px;
+            // border-top-left-radius: 5px;
+        }
+        .checked {
+            color: #fff;
+            background-color: rgba($color: #288bf0, $alpha: 0.6);
+            animation: checkon 1s;
+        }
+        @keyframes checkon {
+            0% {
+                left: 0;
+                background-color: rgba($color: #288bf0, $alpha: 0)
+            }
+            100% {
+                background-color: rgba($color: #288bf0, $alpha: 0.6);
+            }
+        }
+    }
+}

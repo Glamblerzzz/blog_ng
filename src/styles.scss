@@ -1,1 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
+@function wd($wd){
+    @return ($wd/7.5)*1vw
+}
